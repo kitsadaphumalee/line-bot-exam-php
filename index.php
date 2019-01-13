@@ -143,7 +143,7 @@ if($strchk[0]=="#"){
                   $Real_Service = explode("\n",$Real_Service);
 				  
                   $numLine = count(explode("\n",$productivity));
-				  
+				  $Real_Service_Amount = "";
                   for ($start=0; $start < count($Real_Service); $start++) {
                   if($Real_Service[$start]!="" and $start < ($numLine-2)){
 	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start].chr(10);
@@ -227,11 +227,12 @@ if($strchk[0]=="#"){
 				  
                   //$urlWithoutProtocol = "pdc.police.go.th/arrest/check_arrest.php?".$request ;
 				  
-				  $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/run_pdc.php?uid=" .$request;
+		$urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/run_pdc.php?uid=" .$request;
         $isRequestHeader = FALSE;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $urlWithoutProtocol);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$productivity = "";
         $productivity = curl_exec($ch);
         curl_close($ch);
         //$json_a = json_decode($productivity, true);
@@ -313,7 +314,7 @@ if($strchk[0]=="#"){
                   $Real_Service = explode("\n",$Real_Service);
 				  
                   $numLine = count(explode("\n",$productivity));
-				  
+				  $Real_Service_Amount = "";
                   for ($start=0; $start < count($Real_Service); $start++) {
                   if($Real_Service[$start]!="" and $start < ($numLine-2)){
 	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start].chr(10);
