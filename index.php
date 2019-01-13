@@ -135,9 +135,27 @@ if($strchk[0]=="#"){
                               array_push($output,$a_charged.chr(10).$a_link.chr(10).$police.chr(10).$phone.chr(10).$status);
                     }
                   } */
-				  $Real_Service_Amount = $arrbn_id[0];
-                   $txt = "เลขที่บัตร : ". $idcard . "\r\n"
+			      //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
+				  $Real_Service = $productivity;
+				  //$Real_Service_Amount = str_replace(array("\r\n", "\r", "\n"), '', $Real_Service_Amount);
+				  
+				  //$text_line = "Poll number 1, 1500, 250, 150, 100, 1000";
+                  $Real_Service = explode("\n",$Real_Service);
+				  
+                  $numLine = count(explode("\n",$productivity));
+				  
+                  for ($start=0; $start < count($Real_Service); $start++) {
+                  if($Real_Service[$start]!="" and $start < ($numLine-2)){
+	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start].chr(10);
+                  }elseif($start == ($numLine-2)){
+					  $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start];
+				  }     
+                  }  
+				  
+				     //$Real_Service_Amount = $productivity;
+                 $txt = "เลขที่บัตร : ". $idcard . "\r\n"
 		        .$Real_Service_Amount;
+				
 				
                   if($Real_Service_Amount!=""){
                     /*    $msg = "";
@@ -152,17 +170,18 @@ if($strchk[0]=="#"){
                         //"https://www.detectivepolice1.com/pic/".$a_cardid.".jpg";
 						
 						
-					$r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
+				/* 	   $r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
                         //echo $content;
-					   $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
+					   
 						
                         $status = "1";
                         //$txt = "";
-                      if($r == '1'){		   
+                      if($r == '1'){
+						 $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
                         $status = "1";
                       }else{
                         $status = "2";
-                      }
+                      } */
 						
 						 //$r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
                         //echo $content;
@@ -216,7 +235,7 @@ if($strchk[0]=="#"){
         $productivity = curl_exec($ch);
         curl_close($ch);
         //$json_a = json_decode($productivity, true);
-        $arrbn_id = explode("$", $productivity);
+        //$arrbn_id = explode("$", $productivity);
 				  
                  /*  $isRequestHeader = FALSE;
                   $ch = curl_init();
@@ -287,7 +306,23 @@ if($strchk[0]=="#"){
                     }
                   } */
                    //$txt = "บุคคลดังกล่าวมีหมายจับ".chr(10)."เลขบัตร  : ".$a_cardid.chr(10)."ชื่อ-นามสกุล : ".$a_fullname;
-				     $Real_Service_Amount = $arrbn_id[0];
+				  $Real_Service = $productivity;
+				  //$Real_Service_Amount = str_replace(array("\r\n", "\r", "\n"), '', $Real_Service_Amount);
+				  
+				  //$text_line = "Poll number 1, 1500, 250, 150, 100, 1000";
+                  $Real_Service = explode("\n",$Real_Service);
+				  
+                  $numLine = count(explode("\n",$productivity));
+				  
+                  for ($start=0; $start < count($Real_Service); $start++) {
+                  if($Real_Service[$start]!="" and $start < ($numLine-2)){
+	              $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start].chr(10);
+                  }elseif($start == ($numLine-2)){
+					  $Real_Service_Amount = $Real_Service_Amount.$Real_Service[$start];
+				  }     
+                  }  
+				  
+				     //$Real_Service_Amount = $productivity;
                    $txt = "ชื่อ-นามสกุล : ". $idcard . "\r\n"
 		        .$Real_Service_Amount;
                   if($Real_Service_Amount!=""){
@@ -370,11 +405,12 @@ if($strchk[0]=="#"){
                       //$r = file_put_contents($localfile, getContentUrl($input));
                        $r = file_get_contents('http://vpn.idms.pw/id_pdc/index_image.php?uid='.$idcard);
                         //echo $content;
-					   $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
+					  
 						
                         $status = "1";
                         $txt = "";
-                      if($r == '1'){		   
+                      if($r == '1'){
+					   $rr = file_get_contents('http://www.kitsada.com/index_image.php?uid='.$idcard);
                         $status = "1";
                       }else{
                         $status = "2";
