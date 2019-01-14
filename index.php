@@ -414,14 +414,14 @@ if($strchk[0]=="#"){
 		
 		$txt = "ธนาคาร : ". $arrbn_id[0] . "\r\n"
 		."สาขา : ".$arrbn_id[1];
-		  if($Real_Service_Amount!=""){
+		  if($arrbn_id[1]!=""){
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
                       $arrPostData["detail"] = $txt;
                       $arrPostData["status"] = $status;
                       array_push($arrayloop,$arrPostData);
                   }else{
-                    $txt = "ไม่พบสาขาธนาคารดังกล่าว ".$idcard;
+                    $txt = "ไม่พบสาขาธนาคารดังกล่าว : ".$idcard;
                       
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
