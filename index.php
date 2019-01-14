@@ -1,5 +1,5 @@
 <?php
-
+$strAccessToken = "9sPJbcBQa+A6cL+sjFHhUVy+W3OywjzVipx473VAkZTB1vcNtMX/N293MRn/4g7P3ebB7DvgwMLgUuHhyrHDEMntzDN47mOwCCmdkRZXl7ujtAsFSHtZveEL1MC4vZswo1edLDhJPPM+p/B3nuQQgwdB04t89/1O/w1cDnyilFU=";
 $hostname_condb="localhost";
 $username_condb="kitsadac";
 $password_conndb="55zc56sCHd";
