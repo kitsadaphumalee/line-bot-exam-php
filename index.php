@@ -430,7 +430,7 @@ if($strchk[0]=="#"){
         $Service_Type = $arrbn_id[1]; //เครือข่าย
 		//$id = $arrJson['events'][0]['source']['groupId'];
 		$txt = "ธนาคาร : ". $arrbn_id[0] . "\r\n"
-		."สาขา : ".$arrbn_id[1].$id;
+		."สาขา : ".$arrbn_id[1];
 		  if($arrbn_id[1]!=""){
                       $arrPostData = array();
                       $arrPostData["idcard"] = $idcard;
