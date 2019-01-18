@@ -32,7 +32,7 @@ $strexp = $arrJson['events'][0]['message']['text'];
    
    if ($id == "Ce4560a5afc09286767ef80d9990aa1ac"){
 	     
-      //$strexp = "#1229900480178,FT-2536 fds5g45df4g5";
+     //$strexp = "#1229900480178,FT-2536 fds5g45df4g5";
 $strchk = str_split($strexp);
     /*$show = substr($strexp,0,1);
     $space = iconv("tis-620", "utf-8", substr($strexp,1,1) );
@@ -414,8 +414,9 @@ if($strchk[0]=="#"){
      $text_output= explode(" ", $idcard);
      //echo $text_output[0];
      //echo $text_output[1]; 
-	 $request = urlencode($text_output[0]);
-	 $request1 = substr($request, 0, -9);
+	 if(substr($text_output[0],0,1)!="0"){
+		$request = urlencode($text_output[0]);
+	    $request1 = substr($request, 0, -9);
         $urlWithoutProtocol = "http://vpn.idms.pw/id_pdc/select_bank.php?uid=".$request1."&aid=".$text_output[1];
         $isRequestHeader = FALSE;
         $ch = curl_init();
@@ -429,6 +430,7 @@ if($strchk[0]=="#"){
 		$Real_Service_Amount = $arrbn_id[0];  //จำนวนเงิน
         $Service_Type = $arrbn_id[1]; //เครือข่าย
 		//$id = $arrJson['events'][0]['source']['groupId'];
+		$txt = "";
 		$txt = "ธนาคาร : ". $arrbn_id[0] . "\r\n"
 		."สาขา : ".$arrbn_id[1];
 		  if($arrbn_id[1]!=""){
@@ -446,6 +448,9 @@ if($strchk[0]=="#"){
                       $arrPostData["status"] = "0";
                       array_push($arrayloop,$arrPostData);
                   }
+		 
+	 }
+	 
   }
 }else if($strchk[0]=="*"){
   $arrstr  = explode( "*" , $strexp );
